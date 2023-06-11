@@ -48,7 +48,7 @@ public class HandledScreenMixin {
     @Inject(method = "keyPressed", at = @At("HEAD"))
     void onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
         // Ensure the NBT copying functionality is enabled.
-        if (!ConfigManager.getConfig().isDev()) return;
+        if (!SkyblockCoreCommand.NBTCOPYING) return;
 
         // Check that the player has pressed the nbt-copy key.
         if (!SkyblockCore.copyBinding.matchesKey(keyCode, scanCode)) return;
